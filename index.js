@@ -10,18 +10,23 @@ var level = -1;
 $(document).keydown(function () {
     if (!started) {
         $("#level-title").text("Level " + level);
-        nextSequence();
+        $("h3").addClass("hide");
+        setTimeout(function () {
+            nextSequence();
+        }, 300);
+
         started = true;
-        console.log("LEVEL PROBLEM??", level);
     }
 });
 
-$(".mobile").click(function () {
+$("h3").click(function () {
     if (!started) {
         $("#level-title").text("Level " + level);
-        nextSequence();
+        $("h3").addClass("hide");
+        setTimeout(function () {
+            nextSequence();
+        }, 300);
         started = true;
-        console.log("LEVEL PROBLEM??", level);
     }
 });
 
@@ -51,7 +56,7 @@ function checkAnswer(currentLevel) {
         playSound("wrong");
         $("body").addClass("game-over");
         $("#level-title").text("Game Over, Press Any Key to Restart");
-
+        $("h3").text("Restart").removeClass("hide");
         setTimeout(function () {
             $("body").removeClass("game-over");
         }, 200);
